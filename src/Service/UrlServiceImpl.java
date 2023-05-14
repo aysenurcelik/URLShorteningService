@@ -55,7 +55,7 @@ public class UrlServiceImpl implements UrlService {
     {
         String encodedUrl = "";
         LocalDateTime time = LocalDateTime.now();
-        encodedUrl = Hashing.murmur3_32()
+        encodedUrl = Hashing.crc32()
                 .hashString(url.concat(time.toString()), StandardCharsets.UTF_8)
                 .toString();
         return  encodedUrl;
